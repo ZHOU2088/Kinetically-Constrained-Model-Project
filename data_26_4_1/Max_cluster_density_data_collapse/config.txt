@@ -1,0 +1,20 @@
+# 默认参数
+d_val = 2
+L_list_val = [6000,6200,6400,6600,6800,7000,7200,7400,7600,7800,8000,8200,8400,8600,8800,9000,9200,9400,9600,9800,10000]
+# rho_list_val = [0.05, 0.1, 0.15, 0.20, 0.24, 0.248, 0.26, 0.30, 0.35]
+# rho_list_val = np.round(np.linspace(0.01, 0.23, 11),6).tolist()+   np.round(np.linspace(0.234, 0.28, 32),6).tolist()+      np.round(np.linspace(0.285, 0.4, 6),6).tolist()
+
+rho_list_val = generate_beta_list_sparse_center(0.245,0.25,0.24752,60, concentration=2)
+
+num_sample_val = int(1e4)  
+
+periodic=False
+
+
+run_max_cluster_density_simulation_fixed_non_periodic(
+        L_list=L_list_val,
+        d=d_val, 
+        rho_list=rho_list_val,
+        num_sample=num_sample_val,
+        output_base_dir="./MIS-graph/max-cluster-size-0708"
+    )
